@@ -108,8 +108,8 @@ export default function CreateItem() {
             <img className="rounded mt-4" width="350" src={fileUrl} />
           )
         }
-        <button onClick={createMarket} className="font-bold mt-4 bg-black-500 text-white rounded p-4 shadow-lg">
-          Create Digital Asset
+        <button onClick={createMarket} className="font-bold mt-4 bg-black-500 text-black rounded p-4 shadow-lg">
+          Create Digital item
         </button>
       </div>
     </div>
