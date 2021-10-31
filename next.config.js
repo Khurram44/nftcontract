@@ -1,6 +1,8 @@
 module.exports = {
   reactStrictMode: true,
   eslint: { ignoreDuringBuilds: true },
- future:{webpack5:true}
+ future:{webpack5:true},
+ basePath:'/nftcontract',
+ assetPrefix: '/nftcontract',
  
 }
