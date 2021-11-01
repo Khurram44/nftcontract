@@ -7,14 +7,13 @@ import Web3Modal from "web3modal"
 //   nftaddress, nftmarketaddress
 // } from '../config.js'
 
- const nftmarketaddress = "0xe0A7e3b5A487b61D1a86Dce5047EBb8180870E50"
- const nftaddress = "0xd4abeD89Ef8C26b9C2b3BA80a2aa60e863cfDb0f"
+const nftmarketaddress = "0xe0A7e3b5A487b61D1a86Dce5047EBb8180870E50"
+const nftaddress = "0xd4abeD89Ef8C26b9C2b3BA80a2aa60e863cfDb0f"
 
 import NFT from '../artifacts/contracts/NFT.sol/NFT.json'
 import Market from '../artifacts/contracts/Market.sol/NFTMarket.json'
 
 export default function Home() {
-  const prefix ="/nftcontract/"
   const [nfts, setNfts] = useState([])
   const [loadingState, setLoadingState] = useState('not-loaded')
   useEffect(() => {
@@ -50,6 +49,7 @@ export default function Home() {
     const provider = new ethers.providers.Web3Provider(connection)
     const signer = provider.getSigner()
     const contract = new ethers.Contract(nftmarketaddress, Market.abi, signer)
+
     const price = ethers.utils.parseUnits(nft.price.toString(), 'ether')
     const transaction = await contract.createMarketSale(nftaddress, nft.tokenId, {
       value: price
@@ -73,7 +73,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="p-4 bg-black">
-                  <p className="text-2xl mb-4 font-bold text-white">{nft.price} BNB</p>
+                  <p className="text-2xl mb-4 font-bold text-white">{nft.price} ETH</p>
                   <button className="w-full bg-pink-500 text-white font-bold py-2 px-12 rounded" onClick={() => buyNft(nft)}>Buy</button>
                 </div>
               </div>
